@@ -1,6 +1,7 @@
 angular.module('app.home')
   .config(routing)
 
+routing.$inject = ['$routeProvider'];
 function routing($routeProvider){
   $routeProvider
     .when('/', {

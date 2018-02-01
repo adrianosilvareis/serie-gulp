@@ -16,7 +16,7 @@ gulp.task('clean', function(){
 })
 
 gulp.task('app', function(){
-  return gulp.src('./public/app/**/*.js')
+  return gulp.src(['./public/app/**/*module.js','./public/app/**/*.js'])
     .pipe(concat('all.min.js'))
     .pipe(babel({
       presets: ['env']
@@ -27,7 +27,7 @@ gulp.task('app', function(){
 
 gulp.task('lib', function(){
   return queue({objectMode: true},
-      gulp.src(['./public/lib/angular*.min.js', './public/lib/*/dist/**/*.min.js']),
+      gulp.src(['./public/lib/angular*/angular*.min.js', './public/lib/*/dist/**/*.min.js']),
       gulp.src('./public/lib/angular-locale-pt-br/angular-locale_pt-br.js').pipe(uglify())
     )
     .pipe(concat('lib.min.js'))
@@ -47,7 +47,7 @@ gulp.task('cssmin', function(){
 gulp.task('htmlmin', function(){
   return gulp.src('./public/app/**/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./dist/app/'))
 })
 
 gulp.task('copy', function(){

@@ -1,6 +1,7 @@
 angular.module('app.cardapio')
   .config(routeConfig)
 
+routeConfig.$inject = ['$routeProvider'];
 function routeConfig($routeProvider) {
 
   $routeProvider

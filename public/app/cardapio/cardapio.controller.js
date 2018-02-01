@@ -1,6 +1,7 @@
 angular.module('app.cardapio')
   .controller('CardapioController', CardapioController)
 
+CardapioController.$inject = ['$scope', '$filter'];
 function CardapioController($scope, $filter) {
   
         $scope.conta = [];
